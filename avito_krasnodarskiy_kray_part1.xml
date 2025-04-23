@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<real_estate>
+  <ad>
+    <title>Апартаменты-студия, 41 м², 7/9 эт.</title>
+    <price>11200000</price>
+    <address>Краснодарский край, федеральная территория Сириус, пгт. Сириус, Фигурная ул., 45
+р-н Адлерский</address>
+    <area>41</area>
+    <url>https://www.avito.ru/sochi/kvartiry/apartamenty-studiya_41_m_79_et._7351352202?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJkckl2M05pWFdtSmVvWDZsIjt9W83AKz8AAAA</url>
+    <date>· вчера в 17:15</date>
+  </ad>
+  <ad>
+    <title>1-к. апартаменты, 50 м², 5/8 эт.</title>
+    <price>16000000</price>
+    <address>Краснодарский край, федеральная территория Сириус, пгт. Сириус, Олимпийский пр-т, 36/1
+р-н Адлерский</address>
+    <area>50</area>
+    <url>https://www.avito.ru/sochi/kvartiry/1-k._apartamenty_50_m_58_et._7284072812?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJ2aUtLdkZLQnN5WFQ3SXJKIjt9HvTPbz8AAAA</url>
+    <date>· вчера в 12:22</date>
+  </ad>
+  <ad>
+    <title>1-к. квартира, 44,7 м², 7/16 эт.</title>
+    <price>10300000</price>
+    <address>Краснодарский край, Краснодар, ул. имени П.М. Гаврилова, 88
+р-н Западный</address>
+    <area>44,7</area>
+    <url>https://www.avito.ru/krasnodar/kvartiry/1-k._kvartira_447_m_716_et._7316463581?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJMZnowMU5pQXgxUnIxbFk0Ijt9OfGuIT8AAAA</url>
+    <date>· вчера в 13:31</date>
+  </ad>
+</real_estate>

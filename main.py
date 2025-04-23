@@ -1,9 +1,9 @@
-import datetime
 import random
 import re
 import time
 import xml.etree.ElementTree as ET
 from urllib.parse import parse_qs, urlparse
+from xml.dom import minidom
 
 from loguru import logger
 from selenium.common.exceptions import (
@@ -44,6 +44,7 @@ class AvitoParse:
         self.data = []
         self.stop_event = stop_event
         self.region = region
+        self.batch_index = 1
 
     def __get_url(self):
         logger.info(f'Открываю страницу: {self.url}')
@@ -181,6 +182,9 @@ class AvitoParse:
                     if len(self.data) >= 2000:
                         self.__save_to_xml()
                         self.data = []  # Очищаем список после сохранения
+                        self.batch_index += 1
+                    else:
+                        self.__save_to_xml()
 
                     self.driver.open(current_url)
                     time.sleep(1)  # Даем странице загрузиться
@@ -234,6 +238,7 @@ class AvitoParse:
         if not self.data:
             logger.info('Нет данных для сохранения.')
             return
+
         root = ET.Element('real_estate')
         for ad in self.data:
             ad_element = ET.SubElement(root, 'ad')
@@ -243,11 +248,17 @@ class AvitoParse:
             ET.SubElement(ad_element, 'area').text = ad.get('area', '')
             ET.SubElement(ad_element, 'url').text = ad.get('url', '')
             ET.SubElement(ad_element, 'date').text = ad.get('date_public', '')
-        # Формируем имя файла с текущей датой и временем
-        timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
-        file_name = f'avito_{self.region}_{timestamp}.xml'
-        tree = ET.ElementTree(root)
-        tree.write(file_name, encoding='utf-8', xml_declaration=True)
+
+        # Форматирование XML с отступами
+        xml_str = ET.tostring(root, encoding='utf-8')
+        xml_pretty = minidom.parseString(xml_str).toprettyxml(
+            indent='  ', encoding='utf-8'
+        )
+
+        file_name = f'avito_{self.region}_part{self.batch_index}.xml'
+        with open(file_name, 'wb') as f:
+            f.write(xml_pretty)
+
         logger.info(
             f'Сохранён файл {file_name} с {len(self.data)} объявлениями.'
         )
